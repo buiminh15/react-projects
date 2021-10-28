@@ -1,9 +1,19 @@
+import GlobalStyle from 'global-styles';
+import styled from 'styled-components'
+
+
+const AppWrapper = styled.div`
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+`;
 
 function App() {
   return (
-    <div>
+    <AppWrapper>
       Appaa
-    </div>
+      <GlobalStyle />
+    </AppWrapper>
   )
 }
 
