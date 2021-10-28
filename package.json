@@ -15,6 +15,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "prepare": "cd .. && husky install my-app/.husky",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -36,6 +37,11 @@
   },
   "devDependencies": {
     "eslint": "^8.1.0",
+<<<<<<< HEAD:package.json
+=======
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
+>>>>>>> 02d0a26a6b8f5d06bb90bc3a5c4bf101640c926b:my-app/package.json
     "prettier": "2.4.1"
   }
 }
