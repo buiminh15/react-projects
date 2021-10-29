@@ -8,11 +8,9 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
   }
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Lato,Helvetica,Arial,sans-serif;
   }
-  body.fontLoaded {
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
+
   #root {
     background-image: linear-gradient(
       180deg
@@ -23,15 +21,12 @@ const GlobalStyle = createGlobalStyle`
   }
   p,
   label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
   }
   h1, h2, h3, h4 {
     font-family: 'Oswald',Arial,sans-serif;
     font-weight: 400;
     line-height: 1.1;
-    margin-top: 25px;
-    margin-bottom:12.5px;
   }
 `
 

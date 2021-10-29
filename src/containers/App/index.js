@@ -2,6 +2,7 @@ import GlobalStyle from 'global-styles'
 import styled from 'styled-components'
 import { colors, images } from 'common'
 import Header from 'containers/Header'
+import Container from 'containers/Container'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -32,6 +33,7 @@ function App() {
       <BackgroundColorLayer />
       <AppWrapper>
         <Header />
+        <Container></Container>
         <GlobalStyle />
       </AppWrapper>
     </>
