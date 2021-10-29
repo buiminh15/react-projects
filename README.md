@@ -10,6 +10,8 @@ https://medium.com/how-to-react/config-eslint-and-prettier-in-visual-studio-code
 
 https://nimblewebdeveloper.com/blog/absolute-alias-imports-in-javascript-vscode
 
+https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components
+
 ## prettier command
 
 yarn prettier --write .

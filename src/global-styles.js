@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-
+import { createGlobalStyle } from 'styled-components'
+import { colors } from 'common'
 const GlobalStyle = createGlobalStyle`
   html,
   body {
@@ -13,16 +13,26 @@ const GlobalStyle = createGlobalStyle`
   body.fontLoaded {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
-  #app {
-    background-color: #fafafa;
+  #root {
+    background-image: linear-gradient(
+      180deg
+      ,#${colors.FF0060} 0,#${colors.FF6975});
     min-height: 100%;
     min-width: 100%;
+    opacity: 0.8;
   }
   p,
   label {
     font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
   }
-`;
+  h1, h2, h3, h4 {
+    font-family: 'Oswald',Arial,sans-serif;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-top: 25px;
+    margin-bottom:12.5px;
+  }
+`
 
-export default GlobalStyle;
+export default GlobalStyle
