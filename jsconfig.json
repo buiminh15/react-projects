@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+      "plugins": [
+        {
+          "name": "typescript-styled-plugin",
+          "lint": {
+            "validProperties": ["rows", "type", "placeholder"]
+          }
+        }
+      ]
+  },
+  "include": ["src"],
+    "typeAcquisition": {
+    "exclude": ["dotenv"]
+  }
+}
