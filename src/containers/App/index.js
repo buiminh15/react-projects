@@ -10,6 +10,8 @@ const AppWrapper = styled.div`
   flex-direction: column;
   position: relative;
   z-index: 1;
+  justify-content: center;
+  align-items: center;
 `
 
 const BackgroundColorLayer = styled.div`
