@@ -7,6 +7,7 @@ function Header() {
   const ContainerWrapper = styled.div`
     display: block;
     text-align: center;
+    padding: 3em 0 1em;
   `
   return (
     <ContainerWrapper>
