@@ -12,9 +12,10 @@ const GlobalStyle = createGlobalStyle`
   }
   #root {
     background-color: #fafafa;
-    min-height: 100%;
+    height: 100%;
     min-width: 100%;
   }
+
   p,
   label {
     line-height: 1.5em;

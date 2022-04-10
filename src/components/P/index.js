@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const P = styled.p`
-  font-size: 1em;
-`
+  /* margin-bottom: 0.2em; */
+`;
 
-export default P
+export default P;
