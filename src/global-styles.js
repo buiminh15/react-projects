@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   html,
@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
   }
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Oswald', Helvetica, Arial, sans-serif;
   }
   #root {
     background-color: #fafafa;
@@ -17,9 +17,8 @@ const GlobalStyle = createGlobalStyle`
   }
   p,
   label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
   }
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle
