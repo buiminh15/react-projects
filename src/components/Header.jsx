@@ -10,7 +10,6 @@ const Container = styled.div`
 
   display: block;
   width: 100%;
-  background-color: #ccc;
 
   header {
     width: 100%;
@@ -53,13 +52,19 @@ function Header({ children, user, handleLogin, handleSignup }) {
       <header>
         <nav>
           <div className="get-app">
-            <LinkButton href="https://www.zomato.com/partner_with_us" target='_blank'>
+            <LinkButton
+              href="https://www.zomato.com/partner_with_us"
+              target="_blank"
+            >
               <MdExitToApp />
               <span>Get the app</span>
             </LinkButton>
           </div>
           <div className="button-container">
-            <LinkButton href="https://www.zomato.com/partner_with_us" target='_blank'>
+            <LinkButton
+              href="https://www.zomato.com/partner_with_us"
+              target="_blank"
+            >
               Add restaurant
             </LinkButton>
 
@@ -67,14 +72,18 @@ function Header({ children, user, handleLogin, handleSignup }) {
               <NoBorderButton>User</NoBorderButton>
             ) : (
               <>
-                <NoBorderButton handleOnClick={handleLogin}>Login</NoBorderButton>
-                <NoBorderButton handleOnClick={handleSignup}>Signup</NoBorderButton>
+                <NoBorderButton handleOnClick={handleLogin}>
+                  Login
+                </NoBorderButton>
+                <NoBorderButton handleOnClick={handleSignup}>
+                  Signup
+                </NoBorderButton>
               </>
             )}
           </div>
         </nav>
       </header>
-    </Container >
+    </Container>
   )
 }
 
