@@ -4,6 +4,8 @@ import { COLORS } from '../../utils/constants'
 import { Input } from '../Inputs/Input'
 import { MdLocationPin, MdArrowDropDown, MdOutlineSearch, MdMyLocation } from 'react-icons/md'
 import { IconContext } from 'react-icons'
+import { useOnClickOutside } from '../../hooks/useOnClickOutside'
+import { useErrorHandler } from 'react-error-boundary'
 
 const Container = styled.div`
   border-width: 0px;
@@ -73,6 +75,7 @@ const DetectLocation = styled.div`
   max-height: 108.36px;
   border-radius: 0.8rem;
   overflow: hidden;
+  user-select: none;
   .detect {
     background: ${COLORS.white};
     cursor: pointer;
@@ -105,13 +108,68 @@ const DetectLocation = styled.div`
     }
   }
 `
+
+var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0,
+};
+function success(pos) {
+  var crd = pos.coords;
+
+  console.log("Your current position is:");
+  console.log(`Latitude : ${crd.latitude}`);
+  console.log(`Longitude: ${crd.longitude}`);
+  console.log(`More or less ${crd.accuracy} meters.`);
+}
+
+function errors(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+
 function SearchLocation({ }) {
   const [toggleDownIcon, setToggleDownIcon] = React.useState(false)
+  const [denyLocation, setDenyLocation] = React.useState(false)
+  const locationRef = React.useRef()
+  const handleError = useErrorHandler()
+
+  useOnClickOutside(locationRef, () => setToggleDownIcon(false))
+
+  const handleLocationPermission = () => {
+    if (navigator.geolocation) {
+      navigator.permissions
+        .query({ name: "geolocation" })
+        .then(function (result) {
+          if (result.state === "granted") {
+            console.log(result.state);
+            //If granted then you can directly call your function here
+            navigator.geolocation.getCurrentPosition(success);
+          } else if (result.state === "prompt") {
+            navigator.geolocation.getCurrentPosition(success, errors, options);
+          } else if (result.state === "denied") {
+            debugger
+            if (!denyLocation) {
+              setDenyLocation(true)
+            } else {
+              //If denied then you have to show instructions to enable location
+
+              throw new Error('rrrroorrroror')
+            }
+          }
+          result.onchange = function () {
+            console.log(result.state);
+          };
+        });
+    } else {
+      alert("Sorry Not available!");
+    }
+  }
 
   return (
     <Container>
       <div className="wrapper">
-        <div className="location">
+        <div className="location" ref={locationRef}>
           <IconContext.Provider value={{ size: '3rem', color: COLORS.red }}>
             <MdLocationPin className="location-icon" />
           </IconContext.Provider>
@@ -127,17 +185,19 @@ function SearchLocation({ }) {
               onClick={() => setToggleDownIcon(!toggleDownIcon)}
             />
           </IconContext.Provider>
-          <DetectLocation>
-            <div className="detect">
-              <div className='detect__location'>
-                <IconContext.Provider value={{ size: '1.5rem', color: COLORS.red }}>
-                  <MdMyLocation className="my-location-icon" />
-                </IconContext.Provider>
-                <p>Detect current location</p>
+          {
+            toggleDownIcon && <DetectLocation onClick={handleLocationPermission} >
+              <div className="detect">
+                <div className='detect__location'>
+                  <IconContext.Provider value={{ size: '1.5rem', color: COLORS.red }}>
+                    <MdMyLocation className="my-location-icon" />
+                  </IconContext.Provider>
+                  <p>Detect current location</p>
+                </div>
+                <span>Using GPS</span>
               </div>
-              <span>Using GPS</span>
-            </div>
-          </DetectLocation>
+            </DetectLocation>
+          }
         </div>
         <div className="vertical-line"></div>
         <div className="search">

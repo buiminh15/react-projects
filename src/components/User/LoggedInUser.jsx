@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { COLORS, IMAGES } from '../../utils/constants'
 import { MdArrowDropDown } from 'react-icons/md'
 import { IconContext } from 'react-icons'
+import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 
 const Container = styled.div`
   display: flex;
@@ -66,22 +67,7 @@ function LoggedInUser({ user }) {
   const [toggle, setToggle] = React.useState(false)
   const ref = React.useRef()
 
-  React.useEffect(() => {
-    /**
-     * Alert if clicked on outside of element
-     */
-    function handleClickOutside(event) {
-      if (ref.current && !ref.current.contains(event.target)) {
-        setToggle(false)
-      }
-    }
-    // Bind the event listener
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      // Unbind the event listener on clean up
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [ref])
+  useOnClickOutside(ref, () => setToggle(false))
   return (
     <Container>
       <img src={user?.src || IMAGES.userIcon} alt="" />
