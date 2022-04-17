@@ -130,7 +130,6 @@ function errors(err) {
 
 function SearchLocation({ }) {
   const [toggleDownIcon, setToggleDownIcon] = React.useState(false)
-  const [denyLocation, setDenyLocation] = React.useState(false)
   const locationRef = React.useRef()
   const handleError = useErrorHandler()
 
@@ -148,14 +147,8 @@ function SearchLocation({ }) {
           } else if (result.state === "prompt") {
             navigator.geolocation.getCurrentPosition(success, errors, options);
           } else if (result.state === "denied") {
-            debugger
-            if (!denyLocation) {
-              setDenyLocation(true)
-            } else {
-              //If denied then you have to show instructions to enable location
 
-              throw new Error('rrrroorrroror')
-            }
+
           }
           result.onchange = function () {
             console.log(result.state);
