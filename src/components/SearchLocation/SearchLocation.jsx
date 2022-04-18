@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { COLORS } from '../../utils/constants'
+import { COLORS, IMAGES } from '../../utils/constants'
 import { Input } from '../Inputs/Input'
 import { MdLocationPin, MdArrowDropDown, MdOutlineSearch, MdMyLocation } from 'react-icons/md'
 import { IconContext } from 'react-icons'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 import { useErrorHandler } from 'react-error-boundary'
+import useAPIError from '../../hooks/useAPIError'
+import SearchDropdownItem from './SearchDropdownItem'
+
 
 const Container = styled.div`
   border-width: 0px;
@@ -109,6 +112,28 @@ const DetectLocation = styled.div`
   }
 `
 
+const SearchDropdownList = styled.div`
+  position: absolute;
+  top: 6rem;
+  left: 0;
+
+  overflow: hidden;
+  z-index: 10;
+
+
+  height: 10rem;
+  width: 100%;
+  background: ${COLORS.white};
+  border-radius: 0.8rem;
+
+  .search-list {
+
+    
+
+
+  }
+`
+
 var options = {
   enableHighAccuracy: true,
   timeout: 5000,
@@ -131,8 +156,7 @@ function errors(err) {
 function SearchLocation({ }) {
   const [toggleDownIcon, setToggleDownIcon] = React.useState(false)
   const locationRef = React.useRef()
-  const handleError = useErrorHandler()
-
+  const { addError } = useAPIError();
   useOnClickOutside(locationRef, () => setToggleDownIcon(false))
 
   const handleLocationPermission = () => {
@@ -147,7 +171,7 @@ function SearchLocation({ }) {
           } else if (result.state === "prompt") {
             navigator.geolocation.getCurrentPosition(success, errors, options);
           } else if (result.state === "denied") {
-
+            addError(`Please enable location permission from settings and try again!`);
 
           }
           result.onchange = function () {
@@ -172,7 +196,7 @@ function SearchLocation({ }) {
               'Ywca, 1, Ashoka Rd, Hanuman Road Area, Connaught Place, New Delhi, Delhi'
             }
           />
-          <IconContext.Provider value={{ size: '4rem', color: COLORS.red }}>
+          <IconContext.Provider value={{ size: '3rem', color: COLORS.red }}>
             <MdArrowDropDown
               className={toggleDownIcon ? 'arrow-up' : 'arrow-down'}
               onClick={() => setToggleDownIcon(!toggleDownIcon)}
@@ -201,6 +225,19 @@ function SearchLocation({ }) {
             className="search-input"
             placeholder={'Search for restaurant, cuisine or a dish'}
           />
+
+          <SearchDropdownList >
+            <div className='search-list'>
+              {
+                [{
+                  image: IMAGES.imageRes1,
+
+                }].map(item => (
+                  <SearchDropdownItem data={item} />
+                ))
+              }
+            </div>
+          </SearchDropdownList>
         </div>
       </div>
     </Container>

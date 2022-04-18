@@ -5,6 +5,10 @@ import {
 } from "react-router-dom";
 import Home from './pages/Home';
 import { ErrorBoundary } from 'react-error-boundary'
+import APIErrorProvider from './providers/APIErrorProvider'
+import APIErrorNotification from './components/APIErrorNotification';
+import styled from 'styled-components';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 
 function ErrorFallback(error) {
   debugger
@@ -17,6 +21,13 @@ function ErrorFallback(error) {
   )
 }
 
+const Container = styled.div`
+  position:relative;
+
+  width: 100vw;
+  height: 100vh;
+`
+
 function App() {
   return (
     <ErrorBoundary
@@ -25,11 +36,19 @@ function App() {
         // reset the state of your app so the error doesn't happen again
       }}
     >
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
+      <APIErrorProvider>
+        <SkeletonTheme baseColor="#202020" highlightColor="#444">
+          <Container>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Home />} />
+              </Routes>
+            </BrowserRouter>
+            <APIErrorNotification />
+          </Container>
+        </SkeletonTheme>
+      </APIErrorProvider>
+
     </ErrorBoundary>
   )
 }
