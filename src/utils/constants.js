@@ -15,6 +15,9 @@ const COLORS = {
   silver: '#7f7f7f',
   red: '#f58d97',
   pink: '#facecc',
+
+  drakgray: '#9c9c9c',
+  seagreen: '#24963f',
 }
 
 export { IMAGES, COLORS }

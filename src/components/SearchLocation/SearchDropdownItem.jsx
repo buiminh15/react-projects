@@ -23,7 +23,7 @@ const Conttainer = styled.div`
 
 `
 
-function SearchDropdownItem({ data }) {
+function SearchDropdownItem({ data, loading }) {
   return (
     <Conttainer>
       <div className="main-image">
@@ -31,6 +31,18 @@ function SearchDropdownItem({ data }) {
       </div>
       <div className="info">
         <h5>Alel</h5>
+        <p className='address'>Address, India</p>
+        {
+          data.orderStatus ? <p className='order-status'>Address, India</p> :
+            <p className="not-order">Currently not accepting orders</p>
+        }
+
+
+        {
+          data.deliveryTime ? <p className='delivery-time'>Delivery in 33 min</p> :
+            <p className="not-delivery">Does not delivery to your location</p>
+        }
+
       </div>
     </Conttainer>
   )

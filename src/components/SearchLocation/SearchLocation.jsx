@@ -155,6 +155,7 @@ function errors(err) {
 
 function SearchLocation({ }) {
   const [toggleDownIcon, setToggleDownIcon] = React.useState(false)
+  const [loading, setLoading] = React.useState(false)
   const locationRef = React.useRef()
   const { addError } = useAPIError();
   useOnClickOutside(locationRef, () => setToggleDownIcon(false))
@@ -233,7 +234,7 @@ function SearchLocation({ }) {
                   image: IMAGES.imageRes1,
 
                 }].map(item => (
-                  <SearchDropdownItem data={item} />
+                  <SearchDropdownItem data={item} loading={loading} />
                 ))
               }
             </div>
