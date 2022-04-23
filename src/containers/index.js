@@ -1,0 +1,7 @@
+export {default as Home} from './Home'
+export {default as Sales} from './Sales'
+export {default as About} from './About'
+export {default as Service} from './Service'
+export {default as ThankYou} from './ThankYou'
+export {default as Webinar} from './Webinar' 
+export {default as ContactUs} from './ContactUs' 
