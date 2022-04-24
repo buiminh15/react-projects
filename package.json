@@ -10,21 +10,11 @@
     "react": "^17.0.2",
     "react-circular-progressbar": "^2.0.4",
     "react-dom": "^17.0.2",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
-=======
-=======
->>>>>>> 4c622f913d24e82eb5caf6e87abdbe8c236f70ae
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "4.0.3",
-    "styled-components": "^5.3.5",
-    "web-vitals": "^1.0.1"
->>>>>>> 4c622f913d24e82eb5caf6e87abdbe8c236f70ae
   },
   "scripts": {
     "start": "react-scripts start",
@@ -49,8 +39,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-<<<<<<< HEAD
-=======
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
@@ -60,6 +48,5 @@
     "babel-loader": "^8.1.0",
     "eslint": "^8.14.0",
     "prettier": "2.4.1"
->>>>>>> 4c622f913d24e82eb5caf6e87abdbe8c236f70ae
   }
 }

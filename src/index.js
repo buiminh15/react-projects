@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import './normalize.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-=======
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import './normalize.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
->>>>>>> 4c622f913d24e82eb5caf6e87abdbe8c236f70ae
 
 ReactDOM.render(
   <React.StrictMode>
