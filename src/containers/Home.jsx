@@ -1,10 +1,14 @@
 import React from 'react'
-import MainHeroSection from '../components/MainHeroSection'
+import { HeroSection, MainHeroSection, Testimonials, WhyChooseUs, EmailList } from '../components'
 
 export default function Home() {
   return (
     <div>
       <MainHeroSection />
+      <HeroSection />
+      <WhyChooseUs />
+      <Testimonials />
+      <EmailList />
     </div>
   )
 }
