@@ -1,13 +1,11 @@
-import PricingCardItem from 'components/PricingCardItem'
 import './App.css'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import { Home, Pricing, ContactUs, Layout } from './containers'
+import { About, ContactUs, Home, Layout, Pricing } from './containers'
 
 function App() {
   return (
     <Layout className='App'>
       <Home />
+      <About />
       <Pricing />
       <ContactUs />
     </Layout>

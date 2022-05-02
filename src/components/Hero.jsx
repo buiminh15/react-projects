@@ -1,7 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { hbLayer1, hbLayer2, hbMainPhones, hbRect } from '../themes/Images'
-import H1 from './H1'
+import {
+  hbBadgeAppStore,
+  hbBadgeGoogle,
+  hbLayer1,
+  hbLayer2,
+  hbMainPhones,
+} from '../themes/Images'
 import H2 from './H2'
 import P5 from './P5'
 
@@ -41,11 +46,49 @@ const Wrapper = styled.div`
     .desc {
       font-size: 2rem;
     }
+    .text-h2 {
+      margin-bottom: 3.5rem;
+    }
+    .text-header {
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(74px);
+      /* Note: backdrop-filter has minimal browser support */
+
+      border-radius: 49px;
+
+      padding: 0.7rem 1.5rem;
+
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 24px;
+      /* identical to box height, or 109% */
+
+      text-align: center;
+
+      color: #1b1c1f;
+      width: fit-content;
+      box-sizing: border-box;
+      margin-bottom: 2.5rem;
+    }
   }
 
   .right {
   }
 `
+
+const ButtonsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .buttonBadge {
+    cursor: pointer;
+  }
+`
+
+const TextHeader = styled.div``
 
 const Layer = styled.div`
   overflow: hidden;
@@ -65,15 +108,6 @@ const Layer = styled.div`
     transform: scale(1.9);
   }
 `
-const Rect = styled.div`
-  position: absolute;
-  right: 0;
-  z-index: 0;
-  .rect {
-    /* transform: matrix(0.15, -1, 0.97, 0.19, 0, 0); */
-    height: 785px;
-  }
-`
 
 function Hero() {
   return (
@@ -82,18 +116,25 @@ function Hero() {
         <img className='layer1' src={hbLayer1.src} alt={hbLayer1.alt} />
         <img className='layer2' src={hbLayer2.src} alt={hbLayer2.alt} />
       </Layer>
-      {/* <Rect>
-        <img className='rect' src={hbRect.src} alt={hbRect.alt} />
-      </Rect> */}
+
       <Wrapper>
         <div className='left'>
-          <H2 textAlign>
+          <span className='text-header'>All-in-one Business Manager 🔥 </span>
+          <H2 className='text-h2' textAlign>
             Easily keep track of all your sales, income and inventory
           </H2>
           <P5 className='desc' textAlign>
             Take your business to the next level with Hishabee <br /> Business
             Manager Mobile App.
           </P5>
+          <ButtonsContainer>
+            <a className='buttonBadge' href='#'>
+              <img src={hbBadgeGoogle.src} alt={hbBadgeGoogle.alt} />
+            </a>
+            <a className='buttonBadge' href='#'>
+              <img src={hbBadgeAppStore.src} alt={hbBadgeAppStore.alt} />{' '}
+            </a>
+          </ButtonsContainer>
         </div>
         <div className='right'>
           <img src={hbMainPhones.src} alt={hbMainPhones.alt} />

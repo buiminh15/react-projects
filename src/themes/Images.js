@@ -11,6 +11,7 @@ import Checkbox from 'assets/icons/Checkbox.svg'
 import BadgeAppStore from 'assets/images/BadgeAppStore.png'
 import BadgeGoogle from 'assets/images/BadgeGoogle.png'
 import MainPhones from 'assets/images/MainPhones.png'
+import Phone from 'assets/images/phone.png'
 
 const hbLogo = {
   alt: 'logo',
@@ -65,6 +66,10 @@ const hbBottomLeft = {
   alt: 'bottomLeft',
   src: bottomLeft,
 }
+const hbPhone = {
+  alt: 'phone',
+  src: Phone,
+}
 
 export {
   hbLogo,
@@ -80,4 +85,5 @@ export {
   hbBottomRight,
   hbTopLeft,
   hbTopRight,
+  hbPhone,
 }
