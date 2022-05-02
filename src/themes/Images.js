@@ -1,6 +1,7 @@
 import logo from 'assets/icons/logo.svg'
 import rect from 'assets/icons/Rectangle.svg'
 import layer1 from 'assets/icons/Vectorlayer1.svg'
+import layer2 from 'assets/icons/Layer2.svg'
 import dollar from 'assets/icons/dollar-sign.svg'
 import topRight from 'assets/icons/top-right.svg'
 import topLeft from 'assets/icons/top-left.svg'
@@ -23,6 +24,10 @@ const hbRect = {
 const hbLayer1 = {
   alt: 'layer 1',
   src: layer1,
+}
+const hbLayer2 = {
+  alt: 'layer 2',
+  src: layer2,
 }
 const hbBadgeAppStore = {
   alt: 'BadgeAppStore',
@@ -65,6 +70,7 @@ export {
   hbLogo,
   hbRect,
   hbLayer1,
+  hbLayer2,
   hbBadgeAppStore,
   hbBadgeGoogle,
   hbMainPhones,

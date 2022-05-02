@@ -5,14 +5,15 @@ import P5 from '../components/P5'
 import PricingCardItem from '../components/PricingCardItem'
 
 const Container = styled.div`
-  width: 1140px;
-  height: 118px;
+  width: 80%;
+  height: auto;
   margin: 0 auto;
 
   display: flex;
   flex-direction: column;
 
   align-items: center;
+  padding: 9rem 0;
 `
 
 const Wrapper = styled.div`

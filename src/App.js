@@ -1,14 +1,16 @@
 import PricingCardItem from 'components/PricingCardItem'
 import './App.css'
 import Header from './components/Header'
-import { Home, Pricing, ContactUs } from './containers'
+import Footer from './components/Footer'
+import { Home, Pricing, ContactUs, Layout } from './containers'
 
 function App() {
   return (
-    <div className='App'>
-      {/* <Home /> */}
+    <Layout className='App'>
+      <Home />
+      <Pricing />
       <ContactUs />
-    </div>
+    </Layout>
   )
 }
 

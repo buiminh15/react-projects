@@ -9,7 +9,7 @@ const Container = styled.span`
   line-height: 60px;
   /* identical to box height, or 125% */
 
-  text-align: center;
+  text-align: ${(props) => props.textAlign ?? 'center'};
   letter-spacing: -0.02em;
 
   /* Gray/900 */
